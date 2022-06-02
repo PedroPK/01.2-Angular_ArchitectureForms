@@ -19,37 +19,37 @@ Inside it's folder, execute the following command:
 ### CatBooks
 
 Inside it's folder, execute the following commands:
-> npm i --save-dev prettier
-> npm i --save-dev tslint-config-prettier
-> npm i --save-dev tslint-plugin-prettier
-> npm i bootstrap
-> npm i font-awesome
+- `npm i --save-dev prettier`
+- `npm i --save-dev tslint-config-prettier`
+- `npm i --save-dev tslint-plugin-prettier`
+- `npm i bootstrap`
+- `npm i font-awesome`
 
 Into it's folder, make sure the `tslint.json` file was created, and has the following content:
-{
+- ``{
   "extends": [
     "tsling:recommended",
     "tsling-plugin-prettier",
     "tsling-config-prettier"
   ]
-}
+}``
 
 Open the `angular.json` file, and add this two entries to BootStrap and Font-Awesome CSS files:
->> projects >> catBooks >> architect >> build >> options >> styles:
-- "./node_modules/bootstrap/dist/css/bootstrap.min.css"
-- "./node_modules/font-awesome/css/font-awesome.min.css"
+`>> projects >> catBooks >> architect >> build >> options >> styles`:
+- `"./node_modules/bootstrap/dist/css/bootstrap.min.css"`
+- `"./node_modules/font-awesome/css/font-awesome.min.css"`
 
 ## Running the Projects
 
 ### Api
 
 To run `api` project, go to it's folder, and execute the following command:
-> npm start
+- `npm start`
 
 ### CatBooks
 
 To run `catBooks` project, go to it's folder, and execute the following command:
-> npm serve -o
+- `npm serve -o`
 
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
