@@ -1,0 +1,7 @@
+{
+  "extends": [
+    "tsling:recommended",
+    "tsling-plugin-prettier",
+    "tsling-config-prettier"
+  ]
+}
