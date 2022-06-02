@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
     <!--The content below is only a placeholder and can be replaced.-->
+    <!--
     <div style="text-align:center" class="content">
       <h1>
         Welcome to {{title}}!
@@ -22,9 +23,11 @@ import { Component } from '@angular/core';
       <li>
         <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
       </li>
-    </ul>
+    </ul>-->
     <router-outlet></router-outlet>
+    <!--<app-home></app-home>-->
   `,
+  //templateUrl: './home/home.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
