@@ -24,14 +24,13 @@ export class LoginComponent implements OnInit {
         this.authService
             .authenticate(this.aUser, this.aPassword)
             .subscribe(
-                () => {
-                    console.log("Usuário autenticado com sucesso!");
-                    this.router.navigate(
-                        ['animals'])
-                },
-                (error) => {
-                  alert("Usuário ou Senha inválidos!");
-                  console.log(error);
+                {
+                    next: () => {
+                        this.router.navigate(['animals'])
+                    },
+                    error: (erro) => {
+                        alert("Usuário ou Senha inválido(s)!");
+                        console.log(erro)}
                 }
             )
         ;
