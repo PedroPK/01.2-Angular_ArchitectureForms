@@ -41,8 +41,13 @@ export class UserRegistrationComponent implements OnInit {
 			],
 			userName: [
 				'',
-				[lowercaseValidator],
-				[this.existingUserService.verifyExistingUser()],
+				[
+					Validators.required,
+					lowercaseValidator
+				],
+				[
+						this.existingUserService.verifyExistingUser()
+				],
 			  ],
 			password: [
 				'',
