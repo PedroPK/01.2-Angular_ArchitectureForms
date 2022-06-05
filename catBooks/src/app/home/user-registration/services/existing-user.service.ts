@@ -10,7 +10,6 @@ import { CreateUserService, URL_BASE } from './create-user.service';
 })
 export class ExistingUserService {
 	constructor(
-		private httpClient: HttpClient,
 		private createUserService: CreateUserService
 	) {}
 
@@ -21,28 +20,9 @@ export class ExistingUserService {
 		// We may have two Observables. One looking the the keyboard typing, and another to look for the Server request
 		// So we need to convert typing to requests.
 
-		// Replace the Keyboard typing by Service Requests.
-
 		return (control: AbstractControl) => {
-			return control.valueChanges.pipe(
-				switchMap((nomeUsuario) =>
-					this.createUserService.verifyExistingUser(nomeUsuario)
-				),
-				map((isUserNameTaken) =>
-					isUserNameTaken ? { isUserNameTaken: true } : null
-				),
-				first()
-			);
-		};
-
-		/*
-		return (control: AbstractControl) => {
-			// Angular can trace each keyboard typing through Observable's
-			// We may have two Observables. One looking the the keyboard typing, and another to look for the Server request
-			// So we need to convert typing to requests.
-
 			// Replace the Keyboard typing by Service Requests.
-			control.valueChanges.pipe(
+			return control.valueChanges.pipe(
 				// 1st Operator. Its going ro return True or False
 				switchMap(
 					(pUserName) => 	// Keyboard type
@@ -53,12 +33,12 @@ export class ExistingUserService {
 				map(
 					// True or False
 					(isUserNameTaken) =>
-						isUserNameTaken ? {isUserNameTaken: true} : null
+						isUserNameTaken ? { isUserNameTaken: true } : null
 				),
 				// Angular will only fill the Errors object if the Observable has done its request, and the Observable's flow is closed
 				first()
 			);
 		}
-		*/
+
 	}
 }
