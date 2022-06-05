@@ -2,23 +2,65 @@
 
 <form class="form mt-4"
 		[formGroup]="newUserForm"
-		(submit)="register()">
-    <div  class="form-group mb-3">
+		(submit)="register()"
+>
+	<!--e-Mail -->
+	<div  class="form-group mb-3">
         <input type="text"  placeholder="e-Mail"  class="form-control"
-				formGroupName="email">
+				formControlName="email"
+		>
+		<app-messages
+			message="e-Mail obrigatório!"
+			*ngIf="
+				newUserForm.get('email')?.touched &&
+				newUserForm.get('email')?.errors?.['required']">
+		</app-messages>
+		<app-messages
+				message="e-Mail no formato incorreto!"
+				*ngIf="
+					newUserForm.get('email')?.touched &&
+					newUserForm.get('email')?.errors?.['email']">
+			</app-messages>
+		</div>
+
+		<!-- Full Name-->
+		<div  class="form-group mb-3">
+			<input type="text"  placeholder="Nome Completo"  class="form-control"
+			formControlName="fullName">
+
+			<app-messages
+				message="Nome obrigatório!"
+				*ngIf="
+						newUserForm.get('fullName')?.touched &&
+						newUserForm.get('fullName')?.errors?.['required']">
+			</app-messages>
+		</div>
+
+		<!-- User Name-->
+		<div  class="form-group mb-3">
+			<input type="text"  placeholder="Usuário"  class="form-control"
+			formControlName="userName">
+			<app-messages
+				message="Usuário obrigatório!"
+				*ngIf="
+						newUserForm.get('userName')?.touched &&
+						newUserForm.get('userName')?.errors?.['required']">
+			</app-messages>
+		</div>
+
+		<!-- Password-->
+		<div  class="form-group mb-3">
+			<input type="password"  placeholder="Senha"  class="form-control"
+			formControlName="password">
+			<app-messages
+				message="Senha obrigatória!"
+				*ngIf="
+						newUserForm.get('password')?.touched &&
+						newUserForm.get('password')?.errors?.['required']">
+			</app-messages>
     </div>
-    <div  class="form-group mb-3">
-        <input type="text"  placeholder="Nome Completo"  class="form-control"
-				formControlName="fullName">
-    </div>
-    <div  class="form-group mb-3">
-        <input type="text"  placeholder="Usuário"  class="form-control"
-				formControlName="userName">
-    </div>
-    <div  class="form-group mb-3">
-        <input type="password"  placeholder="Senha"  class="form-control"
-				formControlName="password">
-    </div>
+
+	<!-- Submit Button-->
     <div>
         <button   class="btn btn-primary btn-block">Cadastro</button>
     </div>
