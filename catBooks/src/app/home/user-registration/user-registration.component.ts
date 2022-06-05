@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CreateUserService } from './create-user.service';
 import { User } from './user';
+import { lowercaseValidator } from './validators/lowercase-validator';
 
 @Component({
 	selector: 'app-user-registration',
@@ -37,7 +38,10 @@ export class UserRegistrationComponent implements OnInit {
 			],
 			userName: [
 				'',
-				Validators.required
+				[
+					Validators.required,
+					lowercaseValidator
+				]
 			],
 			password: [
 				'',
