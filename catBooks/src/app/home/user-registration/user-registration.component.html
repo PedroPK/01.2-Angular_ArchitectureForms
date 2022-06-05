@@ -34,6 +34,13 @@
 						newUserForm.get('fullName')?.touched &&
 						newUserForm.get('fullName')?.errors?.['required']">
 			</app-messages>
+			<app-messages
+				message="Nome obrigatório!"
+				*ngIf="
+						newUserForm.get('fullName')?.touched &&
+						newUserForm.get('fullName')?.errors?.['minLength']
+						">
+			</app-messages>
 		</div>
 
 		<!-- User Name-->
@@ -45,6 +52,12 @@
 				*ngIf="
 						newUserForm.get('userName')?.touched &&
 						newUserForm.get('userName')?.errors?.['required']">
+			</app-messages>
+			<app-messages
+				message="Usuário deve ser preenchido em Minúsculo!"
+				*ngIf="
+						newUserForm.get('userName')?.touched &&
+						newUserForm.get('userName')?.errors?.['lowercase']">
 			</app-messages>
 		</div>
 
