@@ -23,13 +23,17 @@ export class UserRegistrationComponent implements OnInit {
 			email:
 				[
 					'',
-					Validators.required,
-					Validators.email
+					[
+						Validators.required,
+						Validators.email
+					]
 				],
 			fullName: [
 				'',
-				Validators.required,
-				Validators.minLength(6)
+				[
+					Validators.required,
+					Validators.minLength(6)
+				]
 			],
 			userName: [
 				'',
