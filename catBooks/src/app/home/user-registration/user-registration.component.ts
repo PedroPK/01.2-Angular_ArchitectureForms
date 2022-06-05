@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { User }					from './user';
-import { CreateUserService }	from './services/create-user.service';
 import { lowercaseValidator }	from './validators/lowercase-validator';
 import { ExistingUserService } from './services/existing-user.service';
 
@@ -17,7 +16,6 @@ export class UserRegistrationComponent implements OnInit {
 
 	constructor(
 		private formBuilder:			FormBuilder,
-		private createUserService:		CreateUserService,
 		private existingUserService: 	ExistingUserService
 	) {}
 
