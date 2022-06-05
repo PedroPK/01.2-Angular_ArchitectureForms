@@ -46,7 +46,8 @@
 		<!-- User Name-->
 		<div  class="form-group mb-3">
 			<input type="text"  placeholder="Usuário"  class="form-control"
-			formControlName="userName">
+				formControlName="userName">
+
 			<app-messages
 				message="Usuário obrigatório!"
 				*ngIf="
@@ -58,6 +59,12 @@
 				*ngIf="
 						newUserForm.get('userName')?.touched &&
 						newUserForm.get('userName')?.errors?.['lowercase']">
+			</app-messages>
+			<app-messages
+				message="Usuário já existente!"
+				*ngIf="
+						newUserForm.get('userName')?.touched &&
+						newUserForm.get('userName')?.errors?.['isUserNameTaken']">
 			</app-messages>
 		</div>
 

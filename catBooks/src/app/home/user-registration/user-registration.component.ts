@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CreateUserService } from './create-user.service';
-import { User } from './user';
-import { lowercaseValidator } from './validators/lowercase-validator';
+
+import { User }					from './user';
+import { CreateUserService }	from './services/create-user.service';
+import { lowercaseValidator }	from './validators/lowercase-validator';
+import { ExistingUserService } from './services/existing-user.service';
 
 @Component({
 	selector: 'app-user-registration',
@@ -14,8 +16,9 @@ export class UserRegistrationComponent implements OnInit {
 	newUserForm!:	FormGroup;
 
 	constructor(
-		private formBuilder:	FormBuilder,
-		private service:		CreateUserService
+		private formBuilder:			FormBuilder,
+		private createUserService:		CreateUserService,
+		private existingUserService: 	ExistingUserService
 	) {}
 
 	// Will execute after Constructor and Injection of all attributes
@@ -38,11 +41,9 @@ export class UserRegistrationComponent implements OnInit {
 			],
 			userName: [
 				'',
-				[
-					Validators.required,
-					lowercaseValidator
-				]
-			],
+				[lowercaseValidator],
+				[this.existingUserService.verifyExistingUser()],
+			  ],
 			password: [
 				'',
 				Validators.required,
@@ -55,4 +56,5 @@ export class UserRegistrationComponent implements OnInit {
 		const newUser		=	this.newUserForm.getRawValue() as User;
 		console.log(newUser);
 	}
+
 }
