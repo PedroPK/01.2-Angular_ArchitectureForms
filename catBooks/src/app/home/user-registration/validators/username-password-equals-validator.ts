@@ -7,7 +7,7 @@ export function userNamePasswordEqualsValidator(pFormGroup: FormGroup) {
 
 		// If both userName and Password are filled
 	if (	userName.trim() + password.trim() &&
-			// If both are equals
+			// If both are equals and condition above is True
 			userName.trim() == password.trim()
 	) {
 		//console.log('userNamePasswordEqualsValidator: True');
