@@ -26,7 +26,8 @@
 		<!-- Full Name-->
 		<div  class="form-group mb-3">
 			<input type="text"  placeholder="Nome Completo"  class="form-control"
-			formControlName="fullName">
+					minlength="6"
+					formControlName="fullName">
 
 			<app-messages
 				message="Nome obrigatório!"
@@ -38,7 +39,14 @@
 				message="Nome obrigatório!"
 				*ngIf="
 						newUserForm.get('fullName')?.touched &&
-						newUserForm.get('fullName')?.errors?.['minLength']
+						newUserForm.get('fullName')?.errors?.['required']
+						">
+			</app-messages>
+			<app-messages
+				message="Nome Completo precisa ter pelo menos 6 caracteres!"
+				*ngIf="
+						newUserForm.get('fullName')?.touched &&
+						newUserForm.get('fullName')?.errors?.['minlength']
 						">
 			</app-messages>
 		</div>
@@ -71,16 +79,22 @@
 		<!-- Password-->
 		<div  class="form-group mb-3">
 			<input type="password"  placeholder="Senha"  class="form-control"
+					minlength="8"
 					formControlName="password">
 			<app-messages
 				message="Senha obrigatória!"
 				*ngIf="
 						newUserForm.get('password')?.touched &&
 						newUserForm.get('password')?.errors?.['required']">
-					</app-messages>
-					<app-messages
-					message="Senha não pode ser iqual ao Usuário!"
-
+			</app-messages>
+			<app-messages
+				message="Senha precisa ter pelo menos 8 caracteres!"
+				*ngIf="
+						newUserForm.get('password')?.touched &&
+						newUserForm.get('password')?.errors?.['minlength']">
+			</app-messages>
+			<app-messages
+				message="Senha não pode ser iqual ao Usuário!"
 				*ngIf=" newUserForm.get('password')?.touched &&
 						newUserForm.errors?.['userNameEqualsPassword']">
 			</app-messages>
@@ -88,7 +102,7 @@
 
 	<!-- Submit Button-->
     <div>
-        <button   class="btn btn-primary btn-block">Cadastro</button>
+        <button   class="btn btn-primary btn-block" type="submit">Cadastro</button>
     </div>
 </form>
 
