@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User }					from './user';
 import { lowercaseValidator }	from './validators/lowercase-validator';
 import { ExistingUserService } from './services/existing-user.service';
+import { userNamePasswordEqualsValidator } from './validators/username-password-equals-validator';
 
 @Component({
 	selector: 'app-user-registration',
@@ -21,38 +22,47 @@ export class UserRegistrationComponent implements OnInit {
 
 	// Will execute after Constructor and Injection of all attributes
 	ngOnInit(): void {
-		this.newUserForm	=	this.formBuilder.group({
-			email:
-				[
+		this.newUserForm	=	this.formBuilder.group(
+			{
+				email:
+					[
+						'',
+						[
+							Validators.required,
+							Validators.email
+						]
+					],
+				fullName: [
 					'',
 					[
 						Validators.required,
-						Validators.email
+						Validators.minLength(6)
 					]
 				],
-			fullName: [
-				'',
-				[
-					Validators.required,
-					Validators.minLength(6)
+				userName: [
+					'',
+					[
+						Validators.required,
+						lowercaseValidator
+					],
+					[
+							this.existingUserService.verifyExistingUser()
+					],
+				],
+				password: [
+					'',
+					[
+						Validators.required,
+						Validators.minLength(8)
+					]
 				]
-			],
-			userName: [
-				'',
-				[
-					Validators.required,
-					lowercaseValidator
-				],
-				[
-						this.existingUserService.verifyExistingUser()
-				],
-			  ],
-			password: [
-				'',
-				Validators.required,
-				Validators.minLength(8)
-			]
-		});
+			},
+			{
+				validators: [
+					userNamePasswordEqualsValidator
+				]
+			}
+		);
 	}
 
 	register() {

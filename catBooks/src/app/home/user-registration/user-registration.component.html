@@ -71,12 +71,18 @@
 		<!-- Password-->
 		<div  class="form-group mb-3">
 			<input type="password"  placeholder="Senha"  class="form-control"
-			formControlName="password">
+					formControlName="password">
 			<app-messages
 				message="Senha obrigatória!"
 				*ngIf="
 						newUserForm.get('password')?.touched &&
 						newUserForm.get('password')?.errors?.['required']">
+					</app-messages>
+					<app-messages
+					message="Senha não pode ser iqual ao Usuário!"
+
+				*ngIf=" newUserForm.get('password')?.touched &&
+						newUserForm.errors?.['userNameEqualsPassword']">
 			</app-messages>
     </div>
 
