@@ -23,10 +23,10 @@ export class CreateUserService {
 	}
 
 	verifyExistingUser(pUserName: string): Observable<any> {
-		console.log( 'CreateUserService >> verifyExistingUser()'  );
+		//console.log( 'CreateUserService >> verifyExistingUser()'  );
 
 		const url = URL_BASE + `/user/exists/${pUserName}`;
-		console.log('URL: ' + url);
+		//console.log('URL: ' + url);
 
 		return this.httpClient.get(url);
 	}
