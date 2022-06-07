@@ -1,15 +1,13 @@
-<p>header-template works!</p>
-
 <header		class="stick-top">
-	<nav	class="navbar	navbar-light	bg-white">
+	<nav	class="navbar navbar-light bg-white">
 		<a 	class="navbar-brand">Cat Books</a>
 		<!--						Pipe Async
 			It does a Subcribe() into userAuth$ and if it is available, will put into "userAuth" variable, to display the user's name.
 		-->
 		<div		*ngIf="userAuth$	| async as userAuth">
 			<div	*ngIf="userAuth.name; else loginLink">
-				<i		class="fa	fa-user-circle	mr-1"></i>
-				<a 		class="mr-1">{{userAuth.name}}</a>
+				<i		class="fa fa-user-circle mr-3"></i>
+				<a 		class="mr-3">{{userAuth.name}}</a>
 				<a 		(click)="logout()">LogOut</a>
 			</div>
 		</div>

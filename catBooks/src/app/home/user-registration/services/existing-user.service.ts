@@ -26,7 +26,6 @@ export class ExistingUserService {
 				switchMap(
 					(pUserName) => 	// Keyboard type
 						this.createUserService.verifyExistingUser(pUserName)	// Service Request
-
 				),
 				// 2nd Operator
 				map(
