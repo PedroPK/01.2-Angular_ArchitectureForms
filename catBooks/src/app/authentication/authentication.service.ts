@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpResponse } from '@angular/common/http';
+import { Observable, tap } from 'rxjs';
+import { UserAuthService } from './user/user-auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,18 +9,31 @@ import { Observable } from 'rxjs';
 export class AuthenticationService {
 
     constructor(
-        private httpClient:   HttpClient
+        private httpClient:   		HttpClient,
+		private userAuthService:	UserAuthService
     ) { }
 
-    authenticate(pUser: string, pPassword: string): Observable<any> {
+    authenticate(pUser: string, pPassword: string): Observable<HttpResponse<any>> {
+
         return this.httpClient
             .post(
                 'http://localhost:3000/user/login',
                 {
                     userName:   pUser,
                     password:   pPassword
-                }
-          );
+                },
+				{observe: 'response'}
+          	).pipe(		// Once the Post of UserName and Password was done sucessfully
+				tap(	// Performs side-effects for notifications from the source observable
+					(response) => {
+						// Gets JWT Token from Headers Response
+						const JWT_Token = 'x-access-token';
+						const authenticationToken = response.headers.get(JWT_Token) ?? '';
+
+						this.userAuthService.saveToken(authenticationToken);
+					}
+				)
+			);
     }
 
 }
