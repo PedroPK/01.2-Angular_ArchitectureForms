@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Animals } from 'src/app/animals/animals';
+import { Component, Input, OnInit }		from '@angular/core';
+
+import { Animals }						from 'src/app/animals/animals';
 
 @Component({
 	selector: 'app-image-grid',

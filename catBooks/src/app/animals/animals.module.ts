@@ -4,19 +4,26 @@ import { CommonModule } from '@angular/common';
 import { AnimalsRoutingModule } from './animals-routing.module';
 import { ListAnimalsComponent } from './list-animals/list-animals.component';
 import { AnimalThumbnailComponent } from './animal-thumbnail/animal-thumbnail.component';
-import { ImageCardModule } from '../shared/image-card/image-card.module';
-import { ImageGridModule } from '../shared/image-grid/image-grid.module';
+import { SharedModule } from '../shared/shared.module';
+import { ImageGridComponent } from './image-grid/image-grid.component';
+import { ImageCardComponent } from './image-card/image-card.component';
 
 @NgModule({
 	declarations: [
 		ListAnimalsComponent,
-		AnimalThumbnailComponent],
+		AnimalThumbnailComponent,
+		ImageCardComponent,
+		ImageGridComponent
+	],
 	imports: [
 		CommonModule,
 		AnimalsRoutingModule,
+		SharedModule,
 	],
 	exports: [
-		AnimalThumbnailComponent
+		AnimalThumbnailComponent,
+		ImageGridComponent,
+		ImageCardComponent
 	]
 })
 export class AnimalsModule {}
