@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Animals }			from '../animals';
 import { AnimalsService }	from '../animals.service';
 import { UserAuthService }	from 'src/app/authentication/user/user-auth.service';
+import { Observable, switchMap } from 'rxjs';
 
 @Component({
 	selector: 'app-list-animals',
@@ -11,7 +12,7 @@ import { UserAuthService }	from 'src/app/authentication/user/user-auth.service';
 })
 export class ListAnimalsComponent implements OnInit {
 
-	animals!: Animals;
+	animals$!: Observable<Animals>;
 
 	constructor(
 		private animalsService:		AnimalsService,
@@ -19,16 +20,16 @@ export class ListAnimalsComponent implements OnInit {
 	) {}
 
 	ngOnInit(): void {
-		this.userAuthService.retrieveUserAuth().subscribe(
-			(userAuth) => {
-										// Nullish Coalescing operator (Double Question Mark [??]) is used to check if the userAuth is null/undefined or not, returning the right-hand side of the expression if it is null/undefined.
-				const userName = userAuth.name ?? '';
-				this.animalsService.listUser(userName).subscribe(
-					(animals) => {
-						this.animals = animals;
-					}
-				);
-			}
+		this.animals$ = this.userAuthService.retrieveUserAuth().pipe(
+			switchMap(
+				(user) => {
+					const userName = user.name ?? '';
+					return this.animalsService.listUser(userName);
+				}
+			)
 		);
+
+
+
 	}
 }
