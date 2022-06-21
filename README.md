@@ -49,7 +49,7 @@ To run `api` project, go to it's folder, and execute the following command:
 ### CatBooks
 
 To run `catBooks` project, go to it's folder, and execute the following command:
-- `npm serve -o`
+- `ng serve -o`
 
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
