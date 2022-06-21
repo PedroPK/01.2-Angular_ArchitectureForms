@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ApiServiceService } from 'src/app/shared/api-service.service';
+import { environment } from 'src/environments/environment';
+
+const API = environment.apiUrl;
 
 @Component({
 	selector: 'app-animal-thumbnail',
@@ -15,10 +17,11 @@ export class AnimalThumbnailComponent implements OnInit {
 
 	@Input()
 	set url(pUrl: string) {
+		console.log('AnimalThumbnailComponent.url(): ' + pUrl);
 		if ( pUrl.startsWith('data') ) {
 			this.originalUrl = pUrl;
 		} else {
-			this.originalUrl = `${ApiServiceService.getApiUrl()}/imgs/${pUrl}`;
+			this.originalUrl = `${API}/imgs/${pUrl}`;
 		}
 	}
 
