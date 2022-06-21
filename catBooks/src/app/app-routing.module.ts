@@ -1,5 +1,7 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule }				from '@angular/core';
+import { RouterModule, Routes }	from '@angular/router';
+
+import { AuthenticationGuard }	from './authentication/authentication.guard';
 
 const routes: Routes = [
   {
@@ -13,7 +15,8 @@ const routes: Routes = [
   },
   {
       path: 'animals',
-      loadChildren: () => import('./animals/animals.module').then((m) => m.AnimalsModule)
+      loadChildren: () => import('./animals/animals.module').then((m) => m.AnimalsModule),
+	  canLoad: [AuthenticationGuard]
   }
 ];
 
