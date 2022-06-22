@@ -7,13 +7,15 @@ import { AnimalThumbnailComponent } from './animal-thumbnail/animal-thumbnail.co
 import { SharedModule } from '../shared/shared.module';
 import { ImageGridComponent } from './image-grid/image-grid.component';
 import { ImageCardComponent } from './image-card/image-card.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
 	declarations: [
 		ListAnimalsComponent,
 		AnimalThumbnailComponent,
 		ImageCardComponent,
-		ImageGridComponent
+		ImageGridComponent,
+  		DetailsComponent
 	],
 	imports: [
 		CommonModule,

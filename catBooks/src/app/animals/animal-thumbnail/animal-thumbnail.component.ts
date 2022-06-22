@@ -17,7 +17,6 @@ export class AnimalThumbnailComponent implements OnInit {
 
 	@Input()
 	set url(pUrl: string) {
-		console.log('AnimalThumbnailComponent.url(): ' + pUrl);
 		if ( pUrl.startsWith('data') ) {
 			this.originalUrl = pUrl;
 		} else {

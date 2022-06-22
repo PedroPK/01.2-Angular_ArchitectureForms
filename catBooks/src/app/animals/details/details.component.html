@@ -1,0 +1,20 @@
+<!--	Async does all the Observer handling, doing the ngOnDestroy and Unsubscribe		-->
+<div class="bg-white border" *ngIf="animal$ | async as animal">
+	<div class="row">
+		<div class="col-lg-8">
+			<app-image-card>
+				<app-animal-thumbnail
+					[url]="animal.url"
+					[imageDescription]="animal.description">
+				</app-animal-thumbnail>
+			</app-image-card>
+		</div>
+		<div class="col-lg-4">
+			<small>
+				<p class="text-left break-word">
+					{{animal.description}}
+				</p>
+			</small>
+		</div>
+	</div>
+</div>
