@@ -12,9 +12,11 @@ const NOT_MODIFIED_HTTP_CODE	=	'304';
 	providedIn: 'root',
 })
 export class AnimalsService {
+
+	baseUrl_ApiPhotos:	string		=	`${API}/photos/`;
+
 	constructor(
-		private httpClient:		HttpClient,
-		private tokenService:	TokenService
+		private httpClient:		HttpClient
 	) {}
 
 	listUser(pUserName: string): Observable<Animals> {
@@ -26,19 +28,19 @@ export class AnimalsService {
 
 	searchById(pId: number): Observable<Animal> {
 		return this.httpClient.get<Animal>(
-					`${API}/photos/${pId}`
+					`${this.baseUrl_ApiPhotos}${pId}`
 		);
 	}
 
 	deleteAnimal(pId: number): Observable<Animal> {
 		return this.httpClient.delete<Animal>(
-			`${API}/photos/${pId}`
+			`${this.baseUrl_ApiPhotos}${pId}`
 		);
 	}
 
 	likeAnimal(pId: number): Observable<boolean> {
 		return this.httpClient.post(
-			`${API}/photos/${pId}/like`,
+			`${this.baseUrl_ApiPhotos}${pId}/like`,
 			{},
 			{
 				observe: 'response'
