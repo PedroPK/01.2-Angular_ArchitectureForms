@@ -1,10 +1,8 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, of, throwError } from 'rxjs';
 
-
 import { environment } from 'src/environments/environment';
-import { TokenService } from '../authentication/token.service';
 import { Animal, Animals } from './animals';
 
 const API = environment.apiUrl;
@@ -14,9 +12,9 @@ const NOT_MODIFIED_HTTP_CODE = '304';
 	providedIn: 'root',
 })
 export class AnimalsService {
+
 	constructor(
-		private httpClient:		HttpClient,
-		private tokenService:	TokenService
+		private httpClient:		HttpClient
 	) {}
 
 	listUser(pUserName: string): Observable<Animals> {
@@ -28,7 +26,7 @@ export class AnimalsService {
 
 	searchById(pId: number): Observable<Animal> {
 		return this.httpClient.get<Animal>(
-					`${API}/photos/${pId}`
+			`${API}/photos/${pId}`
 		);
 	}
 
