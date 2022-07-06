@@ -40,7 +40,7 @@ export class AnimalsService {
 
 	like(pId: number) {
 		return this.httpClient
-			.post(`${API}/photos/${pId}/likes`,		{},		{observe: 'response'})
+			.post(`${API}/photos/${pId}/like`,		{},		{observe: 'response'})
 			.pipe(
 				map(() => true),
 				catchError(
