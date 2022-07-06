@@ -1,6 +1,6 @@
-import { Component, OnInit }	from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Observable }			from 'rxjs';
+import { Component, OnInit }		from '@angular/core';
+import { ActivatedRoute, Router } 	from '@angular/router';
+import { Observable }				from 'rxjs';
 
 import { Animal }				from '../animals';
 import { AnimalsService }		from '../animals.service';
@@ -28,22 +28,24 @@ export class DetailsComponent implements OnInit {
 	}
 
 	like() {
-		this.animalsService.likeAnimal(this.animalId).subscribe(
-			(liked) => {
-				if (liked) {
-					this.animal$ = this.animalsService.searchById(this.animalId);
-				}
+		this.animalsService.like(this.animalId).subscribe(
+			{
+				next: (liked) => {
+					this.animal$ = this.animalsService.searchById(this.animalId)
+				},
 			}
 		);
 	}
 
 	delete() {
 		this.animalsService.deleteAnimal(this.animalId).subscribe(
-			() => {
-				this.router.navigate(['/animals/'])
-			},
-			(error) => {
-				console.log(error);
+			{
+				next: () => {
+					this.router.navigate(['/animals/'])
+				},
+				error: (error) => {
+					console.log(error);
+				}
 			}
 		);
 	}
