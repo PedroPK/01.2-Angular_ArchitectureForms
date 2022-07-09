@@ -31,7 +31,9 @@ export class DetailsComponent implements OnInit {
 		this.animalsService.like(this.animalId).subscribe(
 			{
 				next: (liked) => {
-					this.animal$ = this.animalsService.searchById(this.animalId)
+					if ( liked ) {
+						this.animal$ = this.animalsService.searchById(this.animalId)
+					}
 				},
 			}
 		);
