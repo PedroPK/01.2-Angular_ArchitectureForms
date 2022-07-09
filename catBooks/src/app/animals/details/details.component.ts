@@ -1,6 +1,6 @@
-import { Component, OnInit }	from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Observable }			from 'rxjs';
+import { Component, OnInit }		from '@angular/core';
+import { ActivatedRoute, Router } 	from '@angular/router';
+import { Observable }				from 'rxjs';
 
 import { Animal }				from '../animals';
 import { AnimalsService }		from '../animals.service';
