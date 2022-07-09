@@ -29,20 +29,31 @@ export class CommentsComponent implements OnInit {
 	}
 
 	insert(): void {
-		const comment = this.commentForm.get('comment')?.value ?? '';
+		//console.log("Comment Component >> insert()");
 
-		this.commentService.insertComment(
+		const comment = this.commentForm.get('comment')?.value ?? '';
+		//console.log("Comment = " + comment);
+
+		this.comments$ = this.commentService.insertComment(
 			this.id,
 			comment
 		).pipe(
 			// Change from Insert Flow to Search flow
-			switchMap(() => this.commentService.searchComment(this.id)),
+			switchMap(
+				() => {
+					//console.log(`switchMap() invoked`);
+
+					return this.commentService.searchComment(this.id)
+				}
+			),
 
 			// Does not affect RXJS flow. Used to do side-effects notifications
 			tap(
 				() => {
+					//console.log(`tap() invoked`);
+
 					this.commentForm.reset();
-					alert('O Comentário foi salvo com sucesso!');
+					//alert('O Comentário foi salvo com sucesso!');
 				}
 			)
 		);

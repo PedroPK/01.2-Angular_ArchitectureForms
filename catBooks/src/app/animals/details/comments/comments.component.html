@@ -1,7 +1,7 @@
 <p>comments works!</p>
 
 <div *ngIf="comments$ | async as comments">
-	<ul	class="list-unstyled">
+	<ul	class="list-unstyled comment-list">
 		<li	*ngFor="let comment of comments">
 			<p	class="text-dark font-weight-bold mr-1">
 				{{comment.userName}}
@@ -18,8 +18,10 @@
 			<div	class="input-group">
 				<textarea class="form-control" formControlName="comment"></textarea>
 				<div	class="input-group-append">
-					<button [disabled]="commentForm.invalid"	class="btn-primary pull-left">
-						Publish
+					<button [disabled]="commentForm.invalid"
+							class="btn-primary pull-left"
+					>
+						Publicar
 					</button>
 				</div>
 			</div>
