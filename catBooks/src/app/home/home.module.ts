@@ -7,6 +7,7 @@ import { HomeComponent }				from './home.component';
 import { LoginComponent }				from './login/login.component';
 import { MessagesModule }				from '../shared/messages/messages.module';
 import { UserRegistrationComponent }	from './user-registration/user-registration.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
 	declarations: [
@@ -17,8 +18,7 @@ import { UserRegistrationComponent }	from './user-registration/user-registration
 		CommonModule,
 		HomeRoutingModule,
 		FormsModule,
-		MessagesModule,
-		ReactiveFormsModule,
+		SharedModule
 	],
 	exports: [HomeComponent],
 })

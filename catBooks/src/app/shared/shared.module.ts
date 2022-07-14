@@ -1,13 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ImageGridComponent } from '../animals/image-grid/image-grid.component';
-import { ImageCardComponent } from '../animals/image-card/image-card.component';
-import { AnimalsModule } from '../animals/animals.module';
+import { MessagesModule } from './messages/messages.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
 	declarations: [],
 	imports: [
-		CommonModule
+		CommonModule,
+		MessagesModule,
+		ReactiveFormsModule
+	],
+	exports: [
+		MessagesModule,
+		ReactiveFormsModule
 	]
 })
 export class SharedModule {}
