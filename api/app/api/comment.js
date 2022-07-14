@@ -8,7 +8,9 @@ const api = {};
 api.add = async (req, res) => {
     
     const { photoId } = req.params;
-    const { commentText } = req.body;
+
+	// Corrigido por mim, nessa kcta!
+    const commentText = req.body.text;
 
     const commentDao = new CommentDao(req.db);
     const photoDao = new PhotoDao(req.db);

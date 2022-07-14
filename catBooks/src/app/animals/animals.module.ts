@@ -25,8 +25,6 @@ import { SharedModule }					from '../shared/shared.module';
 		CommonModule,
 		AnimalsRoutingModule,
 		SharedModule,
-		MessagesModule,
-		ReactiveFormsModule
 	],
 	exports: [
 		AnimalThumbnailComponent,
