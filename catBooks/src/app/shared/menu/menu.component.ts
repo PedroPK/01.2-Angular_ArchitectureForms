@@ -9,11 +9,16 @@ export class MenuComponent implements OnInit {
 
 	shouldShowMenu = false;
 
-	constructor() {}
+	constructor() {
+		//console.log("MenuComponent >> Constructor()");
+	}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		//console.log("MenuComponent >> ngOnInit()");
+	}
 
 	pressMenu() {
+		//console.log("MenuComponent >> pressMenu()");
 		this.shouldShowMenu = !this.shouldShowMenu;
 	}
 

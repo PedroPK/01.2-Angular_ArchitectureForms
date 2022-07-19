@@ -12,7 +12,11 @@ export class ImageGridComponent implements OnInit {
 	@Input()
 	animals!: Animals;
 
-	constructor() {}
+	constructor() {
+		//console.log("ImageGridComponent >> Constructor()");
+	}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		//console.log("ImageGridComponent >> Constructor()");
+	}
 }

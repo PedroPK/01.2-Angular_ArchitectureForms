@@ -28,8 +28,12 @@ export class AnimalThumbnailComponent implements OnInit {
 		return this.originalUrl;
 	}
 
-	constructor() {}
+	constructor() {
+		//console.log("AnimalThumbnailComponent >> Constructor()");
+	}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		//console.log("AnimalThumbnailComponent >> ngOnInit()");
+	}
 
 }
