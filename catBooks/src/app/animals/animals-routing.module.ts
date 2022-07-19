@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DetailsComponent } from './details/details.component';
 import { ListAnimalsComponent } from './list-animals/list-animals.component';
 import { ListAnimalsResolver } from './list-animals/list-animals.resolver';
+import { NewAnimalComponent } from './new-animal/new-animal.component';
 
 const routes: Routes = [
     {
@@ -13,13 +14,20 @@ const routes: Routes = [
 		}
     },
 	{
+		path:		'newAnimal',
+		component:	NewAnimalComponent
+	},
+	{
 		path:':animalId',
 		component: DetailsComponent
-	}
+	},
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [
+	RouterModule.forChild(
+		routes
+	)],
   exports: [RouterModule]
 })
 export class AnimalsRoutingModule { }
