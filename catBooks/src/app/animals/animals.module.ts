@@ -11,6 +11,7 @@ import { DetailsComponent }				from './details/details.component';
 import { CommentsComponent }			from './details/comments/comments.component';
 import { MessagesModule }				from '../shared/messages/messages.module';
 import { SharedModule }					from '../shared/shared.module';
+import { NewAnimalComponent } from './new-animal/new-animal.component';
 
 @NgModule({
 	declarations: [
@@ -19,14 +20,13 @@ import { SharedModule }					from '../shared/shared.module';
 		ImageCardComponent,
 		ImageGridComponent,
   		DetailsComponent,
-		CommentsComponent
+		CommentsComponent,
+  		NewAnimalComponent
 	],
 	imports: [
 		CommonModule,
 		AnimalsRoutingModule,
 		SharedModule,
-		MessagesModule,
-		ReactiveFormsModule
 	],
 	exports: [
 		AnimalThumbnailComponent,

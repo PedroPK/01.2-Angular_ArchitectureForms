@@ -1,14 +1,16 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { NgModule }		from '@angular/core';
+import { CommonModule }	from '@angular/common';
+import { RouterModule }	from '@angular/router';
 
-import { HeaderTemplateComponent } from './header-template.component';
+import { HeaderTemplateComponent }	from './header-template.component';
+import { MenuModule }				from '../menu/menu.module';
 
 @NgModule({
 	declarations: [HeaderTemplateComponent],
 	imports: [
 		CommonModule,
-		RouterModule
+		RouterModule,
+		MenuModule
 	],
 	exports: [HeaderTemplateComponent],
 })

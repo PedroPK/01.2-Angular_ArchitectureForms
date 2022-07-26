@@ -16,12 +16,16 @@ export class LoginComponent implements OnInit {
     constructor(
         private   authService:    AuthenticationService,
         private   router:         Router
-    ) { }
+    ) {
+		//console.log("LoginComponent >> Constructor()");
+	}
 
     ngOnInit(): void {
+		//console.log("LoginComponent >> ngOnInit()");
     }
 
     login() {
+		//console.log("LoginComponent >> login()");
         this.authService
             .authenticate(this.aUser, this.aPassword)
             .subscribe(

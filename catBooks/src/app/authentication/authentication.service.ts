@@ -14,9 +14,12 @@ export class AuthenticationService {
     constructor(
         private httpClient:   		HttpClient,
 		private userAuthService:	UserAuthService
-    ) { }
+    ) {
+		//console.log("AuthenticationService >> Constructor()");
+	}
 
     authenticate(pUser: string, pPassword: string): Observable<HttpResponse<any>> {
+		//console.log("AuthenticationService >> authenticate()");
 
         return this.httpClient
             .post(

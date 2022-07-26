@@ -19,25 +19,35 @@ export class DetailsComponent implements OnInit {
 		private animalsService:		AnimalsService,
 		private activatedRoute:		ActivatedRoute,
 		private router:				Router
-	) {}
+	) {
+		 //console.log("DetailsComponent >> Constructor()");
+	}
 
 	ngOnInit(): void {
+		console.log("DetailsComponent >> ngOnInit()");
+
+		console.log(`DetailsComponent >> ngOnInit() >> this.activatedRoute.snapshot.params = ${JSON.stringify(this.activatedRoute.snapshot.params)}`);
 		this.animalId	=	this.activatedRoute.snapshot.params['animalId'];
+		console.log(`DetailsComponent >> ngOnInit() >> this.animalId = ${this.animalId}`);
 
 		this.animal$	=	this.animalsService.searchById(this.animalId);
 	}
 
 	like() {
+		//console.log("DetailsComponent >> like()");
 		this.animalsService.like(this.animalId).subscribe(
 			{
 				next: (liked) => {
-					this.animal$ = this.animalsService.searchById(this.animalId)
+					if ( liked ) {
+						this.animal$ = this.animalsService.searchById(this.animalId)
+					}
 				},
 			}
 		);
 	}
 
 	delete() {
+		//console.log("DetailsComponent >> delete()");
 		this.animalsService.deleteAnimal(this.animalId).subscribe(
 			{
 				next: () => {
