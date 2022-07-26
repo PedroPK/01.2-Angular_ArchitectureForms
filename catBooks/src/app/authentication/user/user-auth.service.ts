@@ -17,6 +17,8 @@ export class UserAuthService {
 	constructor(
 		private tokenService:	TokenService
 	) {
+		//console.log("UserAuthService >> Constructor()");
+
 		if ( this.tokenService.hasToken() ) {
 			this.decofifyJWT();
 		}

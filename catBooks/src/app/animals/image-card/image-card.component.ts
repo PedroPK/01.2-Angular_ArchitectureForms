@@ -10,7 +10,11 @@ export class ImageCardComponent implements OnInit {
 	@Input()
 	title: string = '';
 
-	constructor() {}
+	constructor() {
+		//console.log("ImageCardComponent >> Constructor()");
+	}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		//console.log("ImageCardComponent >> ngOnInit()");
+	}
 }

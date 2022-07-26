@@ -11,7 +11,9 @@ export class LoginGuard implements CanLoad {
 	constructor(
 		private userAuthService:	UserAuthService,
 		private router:				Router
-	) {}
+	) {
+		//console.log("LoginGuard >> Constructor()");
+	}
 
 	canLoad(
 		route: Route,
@@ -22,6 +24,7 @@ export class LoginGuard implements CanLoad {
 		| boolean
 		| UrlTree
 	{
+		//console.log("LoginGuard >> canLoad()");
 		if ( this.userAuthService.isLoggedin() ) {
 			this.router.navigate(['animals']);
 			return false;

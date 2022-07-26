@@ -14,9 +14,13 @@ export class HeaderTemplateComponent {
 	constructor(
 		private		userAuthService:	UserAuthService,
 		private		router:				Router
-	) {}
+	) {
+		//console.log("HeaderTemplateComponent >> Constructor()");
+	}
 
 	logout() {
+		//console.log("HeaderTemplateComponent >> logout()");
+
 		this.userAuthService.logOut();
 		this.router.navigate(['']);
 	}
