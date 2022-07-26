@@ -10,9 +10,12 @@ export class MessagesComponent implements OnInit {
     @Input()
     message   =   'Mensagem de Alerta padrão!';
 
-    constructor() { }
+    constructor() {
+		//console.log("MessagesComponent >> Constructor()");
+	}
 
     ngOnInit(): void {
+		//console.log("MessagesComponent >> ngOnInit()");
     }
 
 }

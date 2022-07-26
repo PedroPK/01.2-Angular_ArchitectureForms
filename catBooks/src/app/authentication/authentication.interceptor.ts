@@ -15,12 +15,16 @@ export class AuthenticationInterceptor implements HttpInterceptor {
 
 	constructor(
 		private tokenService:	TokenService
-	) {}
+	) {
+		//console.log("AuthenticationInterceptor >> Constructor()");
+	}
 
 	intercept(
 		request:	HttpRequest<unknown>,
 		next:		HttpHandler
 	): Observable<HttpEvent<unknown>> {
+		//console.log("AuthenticationInterceptor >> intercept()");
+
 		if ( this.tokenService.hasToken() ) {
 			const token				=	this.tokenService.retrieveToken();
 

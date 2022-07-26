@@ -11,7 +11,9 @@ export class AuthenticationGuard implements CanLoad {
 	constructor(
 		private userAuthService:	UserAuthService,
 		private router:				Router
-	) {}
+	) {
+		//console.log("AuthenticationGuard >> Constructor()");
+	}
 
 	canLoad(
 		route: Route,

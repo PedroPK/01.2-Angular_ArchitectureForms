@@ -22,10 +22,14 @@ export class UserRegistrationComponent implements OnInit {
 		private createUserService:		CreateUserService,
 		private existingUserService: 	ExistingUserService,
 		private router:					Router
-	) {}
+	) {
+		//console.log("UserRegistrationComponent >> Constructor()");
+	}
 
 	// Will execute after Constructor and Injection of all attributes
 	ngOnInit(): void {
+		//console.log("UserRegistrationComponent >> ngOnInit()");
+
 		this.newUserForm	=	this.formBuilder.group(
 			{
 				email:
