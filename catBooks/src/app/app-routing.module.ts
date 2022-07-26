@@ -27,7 +27,7 @@ const routes: Routes = [
 	RouterModule.forRoot(
 		routes,
 		{
-			enableTracing: true
+			enableTracing: false
 		}
 	)],
   exports: [RouterModule]

@@ -1,8 +1,10 @@
-import { HttpEvent, HttpEventType } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { finalize } from 'rxjs';
+import { HttpEvent, HttpEventType }				from '@angular/common/http';
+import { Component, OnInit }					from '@angular/core';
+import { FormBuilder, FormGroup, Validators }	from '@angular/forms';
+import { Router }								from '@angular/router';
+
+import { finalize }								from 'rxjs';
+
 import { AnimalsService } from '../animals.service';
 
 @Component({
@@ -40,6 +42,8 @@ export class NewAnimalComponent implements OnInit {
 		const allowComments		=	this.animalForm.get('allowComments')?.value ?? false;
 		const description		=	this.animalForm.get('description')	?.value ?? '';
 
+		console.log(`NewAnimalComponent >> uploadPhoto() >> this.file = ${this.file}`);
+
 		this.animalsService
 			.uploadPhoto(description, allowComments, this.file)
 			.pipe(
@@ -68,7 +72,7 @@ export class NewAnimalComponent implements OnInit {
 
 	saveFile(pFile: any): void {
 		console.log("NewAnimalComponent >> saveFile()");
-		const [file]	= pFile?.file;
+		const [file]	= pFile?.files;
 		this.file		=	file;
 
 		const reader	=	new FileReader();

@@ -5,6 +5,8 @@ import { ListAnimalsComponent } from './list-animals/list-animals.component';
 import { ListAnimalsResolver } from './list-animals/list-animals.resolver';
 import { NewAnimalComponent } from './new-animal/new-animal.component';
 
+// the Path do newAnimal has to be in the second position. Its was not told in the lesson, but attempts to let it on 3th position shown incorrect behavior
+
 const routes: Routes = [
     {
         path: '',

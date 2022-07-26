@@ -63,11 +63,11 @@ export class AnimalsService {
 	}
 
 	uploadPhoto(
-		pDescription:	string,
-		pAllowsComment:	boolean,
+		pDescription:		string,
+		pAllowsComment:		boolean,
 		pImageFile:			File
 	) {
-		//console.log("AnimalsService >> uploadPhoto()");
+		console.log("AnimalsService >> uploadPhoto()");
 
 		const API_DESCRIPTION		=	'description';
 		const API_ALLOW_COMMENTS	=	'allowComments';

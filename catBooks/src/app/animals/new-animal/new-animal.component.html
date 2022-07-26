@@ -6,11 +6,12 @@
 			(submit)="uploadPhoto()">
 		<div	class="col-md-6		text-center">
 			<div	class="form-group"
-					*ngIf="!photoPreview	else	previewTemplate">
+					*ngIf="!photoPreview;	else	previewTemplate">
 				<button		type="button"
 							class="btn btn-primary"
-							(click)="fileInput.click()"></button>
-				<i	class="fa fa-image fa-4x align-middle"></i>
+							(click)="fileInput.click()">
+					<i	class="fa fa-image fa-4x align-middle"></i>
+				</button>
 				<input	type="file"
 						#fileInput
 						hidden
